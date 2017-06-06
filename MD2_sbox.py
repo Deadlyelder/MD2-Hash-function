@@ -48,18 +48,16 @@ def md2_rand(n):
 # Main execution
 if __name__ == '__main__':
     S = range(256)
-    # Inits the S-box
+    # Initialization of the S-box
     for i in range(0,255):
         S[i] = i
 
-    # Shuffles the S-box
     for i in range(2,256):
         j = md2_rand(i)
         temp = S[j]
         S[j] = S[i-1]
         S[i-1] = temp
 
-    # Outputs the S-box
     for i in range(0,256):
         print "0x%0.2X, " % S[i] #Convert the output to hex for further use
         if(((i+1)%16)==0):
